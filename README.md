@@ -80,7 +80,7 @@
   ```
 - with new data
 
-  - images들 혹은 `ffempg`을 이용하여 frame cut한 images들만 존재하는 경우
+  - images들 혹은 `ffmepg`을 이용하여 frame cut한 images들만 존재하는 경우
   
      [InstantAvatar](https://github.com/tijiang13/InstantAvatar) 에서 제공하는 `scripts/custom/process-sequence.sh`를 사용.
       ```
