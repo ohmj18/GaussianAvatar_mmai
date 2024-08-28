@@ -80,51 +80,59 @@
   ```
 - with new data
 
-  images들 혹은 `ffempg`을 이용하여 frame cut한 images들만 존재하는 경우에는 [InstantAvatar](https://github.com/tijiang13/InstantAvatar) 에서 제공하는 `scripts/custom/process-sequence.sh`를 사용.
-  ```
-  data/subject
-   └── images
-  ```
+  - images들 혹은 `ffempg`을 이용하여 frame cut한 images들만 존재하는 경우
+  
+     [InstantAvatar](https://github.com/tijiang13/InstantAvatar) 에서 제공하는 `scripts/custom/process-sequence.sh`를 사용.
+      ```
+      data/subject
+       └── images
+      ```
 
-  `bash scripts/custom/process-sequence.sh`을 실행하면 `keypoints.npy`, `masks`, `poses.npz`,`cameras.npz`, `poses_optimized.npz`, `output.mp4`를 얻게 됨. 그 중 mask와 pose 정보사용.
+  - `bash scripts/custom/process-sequence.sh`을 실행
   
-  `run-openpose-bin.sh`의 `line 15` 경로 설정 필요.
-  ```
-  data/subject
-   ├── images
-   ├── masks                //run_sam.py & extract-largest-connected-components.py
-   ├── cameras.npz          //run_romp.py
-   └── poses_optimized.npz  //refine-smpl.py
-  ```
-  
-  `cd scripts & python sample_romp2gsavatar.py`을 실행하면 `train`과 `test` 데이터에서 `cam_parms.npz`와 `smpl_parms.pth`를 얻게 됨.
-  
-  `sample_romp2gsavatar.py`의 `line 50 & 51` 경로 설정 필요.
+    `keypoints.npy`, `masks`, `poses.npz`,`cameras.npz`, `poses_optimized.npz`, `output.mp4`를 얻게 됨. 그 중 mask와 pose 정보사용.
+    
+    `run-openpose-bin.sh`의 `line 15` 경로 설정 필요.
     ```
     data/subject
      ├── images
-     ├── masks
-     ├── cam_parms.npz
-     └── smpl_parms.pth
+     ├── masks                //run_sam.py & extract-largest-connected-components.py
+     ├── cameras.npz          //run_romp.py
+     └── poses_optimized.npz  //refine-smpl.py
     ```
-
-  `python gen_pose_map_cano_smpl.py`을 실행하면 `query_posemap_%%_cano_smpl.npz`와 `smpl_cano_joint_mat.pth`를 얻게 됨.
   
-  `gen_pose_map_cano_smpl.py`의 `line 103 & 106` 경로 설정 필요.
-   ```
-    data/subject
-     ├── images
-     ├── masks
-     ├── cam_parms.npz
-     ├── smpl_parms.pth
-     ├── query_posemap_%%_cano_smpl.npz
-     └── smpl_cano_joint_mat.pth
-    ```
+  - `cd scripts & python sample_romp2gsavatar.py`을 실행
+  
+    `train`과 `test` 데이터에서 `cam_parms.npz`와 `smpl_parms.pth`를 얻게 됨.
+  
+    `sample_romp2gsavatar.py`의 `line 50 & 51` 경로 설정 필요.
+      ```
+      data/subject
+       ├── images
+       ├── masks
+       ├── cam_parms.npz
+       └── smpl_parms.pth
+      ```
 
-   data의 preprocessing이 끝났으면 train 시키기 가능.
-    ```
-    python train.py -s $path_to_data/$subject -m output/$subject --train_stage 1 
-    ```
+  - `python gen_pose_map_cano_smpl.py`을 실행
+
+    `query_posemap_%%_cano_smpl.npz`와 `smpl_cano_joint_mat.pth`를 얻게 됨.
+  
+    `gen_pose_map_cano_smpl.py`의 `line 103 & 106` 경로 설정 필요.
+     ```
+      data/subject
+       ├── images
+       ├── masks
+       ├── cam_parms.npz
+       ├── smpl_parms.pth
+       ├── query_posemap_%%_cano_smpl.npz
+       └── smpl_cano_joint_mat.pth
+      ```
+
+   - data의 preprocessing이 끝났으면 train 시키기 가능.
+      ```
+      python train.py -s $path_to_data/$subject -m output/$subject --train_stage 1 
+      ```
   
 ### eval.py
   ```
