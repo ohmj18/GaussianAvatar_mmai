@@ -47,7 +47,13 @@
   
 - get_lbs_weight.py
 
-  `./`에 저장
+  `./`에 저장 (파일 내부에서 경로 입력 필요)
+
+- pytorch3d_renderer.py & pytorch3d_structures.py
+
+  `scripts/custom`에 저장
+
+  data preprocessing 중에 필요 : refine_smpl.py에서 pytorch3d import함. (코드 수정 필요)
 
 
 ## Needed files for executing
