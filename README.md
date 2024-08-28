@@ -39,7 +39,7 @@
 
   `./scripts/custom`에 저장
   
-- sam_vit_h_4b8939.py
+- sam_vit_h_4b8939.pth
 
   [segment-anything](https://github.com/facebookresearch/segment-anything/tree/main) 에서 제공하는 ViT-H SAM model
 
