@@ -2,6 +2,7 @@
 - [Files to download for executing](#files-to-download-for-executing)
 - [Needed files for executing](#needed-files-for-executing)
 - [Code for change](#code-for-change)
+- [File별 input/output](https://judicious-albatross-768.notion.site/GaussianAvatar-input-output-e795977e575e420f9b3a3ccb1b3eae92?pvs=4) (notion 정리)
 
 ## Files to download for executing
 - [SMPL](https://smpl.is.tue.mpg.de/) & [SMPL-X](https://smpl-x.is.tue.mpg.de/) model
