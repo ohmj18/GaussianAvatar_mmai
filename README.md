@@ -2,7 +2,8 @@
 - [Files to download for executing](#files-to-download-for-executing)
 - [Needed files for executing](#needed-files-for-executing)
 - [Code for change](#code-for-change)
-- [File별 input/output](https://judicious-albatross-768.notion.site/GaussianAvatar-input-output-e795977e575e420f9b3a3ccb1b3eae92?pvs=4) (notion 정리)
+- [File별 input/output](https://judicious-albatross-768.notion.site/GaussianAvatar-input-output-e795977e575e420f9b3a3ccb1b3eae92?pvs=4) (notion 정리, 2024/09/08 updated)
+- [romp package 문제 해결](#romp-package-설치) (2024/09/11 updated)
 
 ## Files to download for executing
 - [SMPL](https://smpl.is.tue.mpg.de/) & [SMPL-X](https://smpl-x.is.tue.mpg.de/) model
@@ -190,5 +191,28 @@
   return rendered_image[0]   
   ```
 
+## romp package 설치
+- [simple_romp](https://github.com/Arthur151/ROMP/blob/master/simple_romp/README.md)
+```
+pip install cython
+pip install simple_romp==1.1.3
+# or install from source
+```
+링크 참고하여 `smpl_model_data` & `Download version 1.1.0 for Python 2.7 (female/male/neutral, 300 shape PCs)` 다운로드 후 압축 풀기
 
+`SMPL_NEUTRAL.pkl` 파일 smpl_model_data 폴더에 옮기기
 
+smpl_model_data 를 `smpl_model_data_for_romp` 로 이름을 바꾸어 `/GaussianAvatar` 혹은 원하는 폴더에 저장
+
+```
+# please provide the absolute path of the "smpl_model_data" folder to the source_dir
+romp.prepare_smpl -source_dir=/path/to/smpl_model_data
+```
+
+- 결과
+```
+|-- .romp
+|   |-- SMPL_NEUTRAL.pth
+|   |-- SMPLA_NEUTRAL.pth
+|   |-- smil_packed_info.pth
+```
